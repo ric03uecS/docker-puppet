@@ -6,6 +6,6 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq update && apt-get upgrade -qqy
 
-RUN apt-get install -qqy rubygems git
+RUN apt-get install -qqy git apt-transport-https wget
 
-RUN gem install --no-rdoc --no-ri activesupport -v 4.2.5 && gem install librarian-puppet --no-rdoc --no-ri
+RUN apt-get install -qqy rubygems && gem install --no-rdoc --no-ri activesupport -v 4.2.5 && gem install librarian-puppet --no-rdoc --no-ri
