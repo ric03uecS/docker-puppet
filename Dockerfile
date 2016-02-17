@@ -10,10 +10,8 @@ RUN apt-get install -qqy git apt-transport-https wget
 
 RUN apt-get install -qqy rubygems puppet && gem install --no-rdoc --no-ri activesupport -v 4.2.5 && gem install librarian-puppet --no-rdoc --no-ri
 
-ADD hiera.yaml /etc/hiera.yaml
-
 # Run puppet
 ONBUILD ADD Puppetfile /
 ONBUILD RUN librarian-puppet install
-ONBUILD ADD module.yaml /etc/hiera/common.yaml
-ONBUILD RUN puppet apply -e "hiera_include('classes')" --debug
+ONBUILD ADD module.yaml /var/lib/hiera/common.yaml
+ONBUILD RUN puppet apply --modulepath=/modules -e "hiera_include('classes')" --debug
