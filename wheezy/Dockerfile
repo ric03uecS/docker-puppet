@@ -8,7 +8,7 @@ RUN apt-get -qq update && apt-get upgrade -qqy
 
 RUN apt-get install -qqy git apt-transport-https wget && apt-get clean
 
-RUN apt-get install -qqy rubygems puppet && \
+RUN apt-get install -qqy rubygems ruby-dev puppet && \
 gem install --no-rdoc --no-ri activesupport -v 4.2.5 && \
 gem install librarian-puppet --no-rdoc --no-ri && \
 apt-get clean
