@@ -4,8 +4,8 @@ env:
     - BUILD_OS='wheezy'
 build:
   pre_ci:
-    - if [[ $NGINX_PARAM == 'wheezy' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:$BUILD_OS .; fi
-    - if [[ $NGINX_PARAM == 'latest' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:$BUILD_OS .; fi
+    - if [[ $BUILD_OS == 'wheezy' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:$BUILD_OS .; fi
+    - if [[ $BUILD_OS == 'latest' ]]; then docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/puppet:$BUILD_OS .; fi
   pre_ci_boot:
     image_name: mygento/puppet
     image_tag: $BUILD_OS
