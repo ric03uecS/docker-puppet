@@ -1,8 +1,6 @@
 env:
   matrix:
-    - BUILD_OS='latest'
-    
-#    - BUILD_OS='wheezy'
+    - BUILD_OS='wheezy'
 
 build:
   pre_ci:
