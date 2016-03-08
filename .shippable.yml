@@ -12,8 +12,8 @@ build:
     pull: false
   ci:
      - puppet -V
-  post_ci:
-     - sudo docker push mygento/puppet:$BUILD_OS
+push:
+  - docker push mygento/puppet:$BUILD_OS
 
 integrations:
     hub:
